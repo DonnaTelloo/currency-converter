@@ -1,14 +1,4 @@
 <?php
-error_reporting(0);
-if(isset($_POST))
-{
-$currency_input = $_POST['data'];
-}else{
-echo "";
-}
-?>
-
-<?php
 function currencyConverter($currency_from,$currency_to,$currency_input){
 $yql_base_url = "http://query.yahooapis.com/v1/public/yql";
 $yql_query = 'select * from yahoo.finance.xchange where pair in ("'.$currency_from.$currency_to.'")';
