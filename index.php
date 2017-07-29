@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 function currencyConverter($currency_from,$currency_to,$currency_input){
 $yql_base_url = "http://query.yahooapis.com/v1/public/yql";
 $yql_query = 'select * from yahoo.finance.xchange where pair in ("'.$currency_from.$currency_to.'")';
@@ -29,14 +30,14 @@ $currency = currencyConverter($currency_from,$currency_to,$currency_input);
 <div ng-app="" style="width: 500px;margin:auto;margin-top:30px;">
 <div class="form-group">
 <div class="input-group">
-<span class="input-group-addon primary"></span>
+<span class="input-group-addon primary" id="other"></span>
 <input type="text" placeholder="0" class="form-control" ng-model="gel">
 </div>
 </div>
 <div class="form-group">
 <div class="input-group">
-<span class="input-group-addon primary" id="other"></span>
-<input type="text" placeholder="0" class="form-control" ng-model="gel * <?php echo $currency ?>" ng-model="gel" disabled="">
+<span class="input-group-addon primary"></span>
+<input type="text" placeholder="0" class="form-control" ng-model="gel * <?php echo $currency ?>" disabled="">
 </div>
 </div>
 </div>
